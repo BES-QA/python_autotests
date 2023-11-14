@@ -1,6 +1,5 @@
-from time import sleep
-
 from selenium_ui_api_tests.ui_tests.youtube.pages.youtube import Shorts
+from selenium_ui_api_tests.ui_tests.conftest import browser
 
 
 def test(browser):
@@ -11,4 +10,4 @@ def test(browser):
     is_visible = page.first_short_is_visible()
     assert active is True
     assert is_visible is True
-    sleep(5)
+

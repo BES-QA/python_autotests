@@ -2,8 +2,9 @@ import pytest
 from selenium import webdriver
 
 
-@pytest.fixture()
+@pytest.fixture(scope='session')
 def browser():
+    print('запуск фикстуры')
     driver = selenoid_settings()
     driver.maximize_window()
     driver.implicitly_wait(15)
