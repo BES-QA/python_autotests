@@ -1,10 +1,9 @@
-import pprint
 import random
 
 import pytest
 import requests
 
-from selenium_ui_api_tests.api_tests.data_generator import data_generator
+from api_tests.data_generator import data_generator
 
 BASE_URL = 'https://reqres.in'
 

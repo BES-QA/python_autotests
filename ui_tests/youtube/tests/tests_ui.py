@@ -1,9 +1,9 @@
-from selenium_ui_api_tests.ui_tests.youtube.pages.youtube import Shorts
-from selenium_ui_api_tests.ui_tests.conftest import browser
+from ui_tests.youtube.pages.shorts_page import ShortsPage
+from ui_tests.conftest import browser
 
 
 def test(browser):
-    page = Shorts(browser)
+    page = ShortsPage(browser)
     page.open()
     page.click_on_the_shorts_btn()
     active = page.check_shorts_btn_is_enabled()

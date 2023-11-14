@@ -4,16 +4,6 @@ from selenium import webdriver
 
 @pytest.fixture(scope='session')
 def browser():
-    print('запуск фикстуры')
-    driver = selenoid_settings()
-    driver.maximize_window()
-    driver.implicitly_wait(15)
-
-    yield driver
-    driver.quit()
-
-
-def selenoid_settings():
     capabilities = {
         # 'browserName': 'chrome',
         # 'browserVersion': '119.0',
@@ -24,7 +14,15 @@ def selenoid_settings():
     }
     options = webdriver.ChromeOptions()
     options.capabilities.update(capabilities)
-    return webdriver.Remote(command_executor='http://192.168.0.105:4444/wd/hub', options=options)
+
+    driver = webdriver.Remote(command_executor='http://192.168.0.105:4444/wd/hub', options=options)
+    driver.maximize_window()
+    driver.implicitly_wait(15)
+
+    yield driver
+    driver.quit()
+
+
 
 
 
